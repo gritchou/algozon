@@ -1,0 +1,33 @@
+
+.header {
+	position: absolute;
+	z-index: 50;
+}
+
+.container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 64px;
+	bottom: 0;
+
+	@media (max-width: 599px) {
+		& {
+			top: 56px;
+		}
+	}
+
+	> .left {
+    padding: 16px;
+    width: 300px;
+	}
+
+	> .right {
+		padding: 16px;
+		> .search {
+			margin-bottom: 20px;
+			display: block;
+			width: 300px;
+		}
+	}
+}

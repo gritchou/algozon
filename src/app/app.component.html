@@ -1,18 +1,23 @@
+<mat-toolbar class="header mat-elevation-z5">
+  <span>Algolia Angular Material</span>
+</mat-toolbar>
 <ais-instantsearch [config]="config">
-    <div class="left">
-        <ais-hierarchical-menu
-            [attributes]="['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2']"
-            [sortBy]="['name:asc']">
-        </ais-hierarchical-menu>
-        <ais-refinement-list
-            attribute="brand"
-            operator="or"
-            limit="10">
-        </ais-refinement-list>
-    </div>
+      <mat-sidenav-container class="container" autosize>
+        <mat-sidenav opened mode="side" class="left">
+          <ais-hierarchical-menu
+              [attributes]="['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2']"
+              [sortBy]="['name:asc']">
+          </ais-hierarchical-menu>
+          <ais-refinement-list
+              attribute="brand"
+              operator="or"
+              limit="10">
+          </ais-refinement-list>
+        </mat-sidenav>
 
-    <div class="right">
-        <ais-search-box placeholder="Search a product"></ais-search-box>
+    <mat-sidenav-content class="right">
+        <app-search-box placeholder="Search a product" class="search"></app-search-box>
         <ais-hits></ais-hits>
-    </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 </ais-instantsearch>
