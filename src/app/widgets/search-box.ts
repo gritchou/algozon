@@ -50,7 +50,7 @@ import { BaseWidget, NgAisInstantSearch } from 'angular-instantsearch';
     `,
 })
 export class AppSearchBoxComponent extends BaseWidget implements AfterViewInit {
-    @ViewChild('searchBox') searchBox: ElementRef;
+    @ViewChild('searchBox', { static: false }) searchBox: ElementRef;
     @Input() public placeholder = 'Search';
     @Input() public submitTitle = 'Submit';
     @Input() public resetTitle = 'Reset';
