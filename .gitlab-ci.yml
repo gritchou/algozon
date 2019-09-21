@@ -11,8 +11,8 @@ test:
   before_script:
     - npm ci
   script:
-    - npm run lint
-    - npm test
+    - ng lint
+    - ng test --progress false --watch false
   artifacts:
     expire_in: 1 week
 
@@ -20,8 +20,10 @@ build:
   stage: build
   allow_failure: false
   retry: 2
+  before_script:
+  - npm ci
   script:
-    - npm run build
+    - ng build --prod
   artifacts:
     expire_in: 1 week
 
