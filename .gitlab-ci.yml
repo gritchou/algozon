@@ -26,10 +26,16 @@ build:
     - ng build --prod
   artifacts:
     expire_in: 1 week
+    paths:
+      - dist
 
 deploy:
   stage: deploy
+  dependencies:
+  - build
   script:
-    - cp -r build public
+    - cp -r dist/algolia public
   artifacts:
     expire_in: 1 week
+    paths:
+      - public
