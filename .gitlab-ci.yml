@@ -1,0 +1,33 @@
+image: trion/ng-cli-karma:8.3.5
+
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  allow_failure: false
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+    - npm test
+  artifacts:
+    expire_in: 1 week
+
+build:
+  stage: build
+  allow_failure: false
+  retry: 2
+  script:
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+
+deploy:
+  stage: deploy
+  script:
+    - cp -r build public
+  artifacts:
+    expire_in: 1 week
