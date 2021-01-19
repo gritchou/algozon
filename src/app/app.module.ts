@@ -12,11 +12,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 
 import { SearchBoxComponent } from './widgets/search.component';
+import { BrandLabel } from './widgets/brand-label.component';
+
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		SearchBoxComponent,
+		BrandLabel,
 	],
 	imports: [
 		BrowserModule,
