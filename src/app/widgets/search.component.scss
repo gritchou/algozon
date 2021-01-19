@@ -1,0 +1,29 @@
+
+@import "../../variables";
+
+:host {
+	display: contents;
+}
+
+.form {
+	display: contents;
+}
+
+.search-input {
+	height: 40px;
+	width: 100%;
+	max-width: 830px;
+	font-size: 18px;
+	padding: 8px 12px;
+	box-sizing: border-box;
+	margin-left: 16px;
+	border-radius: 6px;
+	border: 0;
+
+	// outline-color: $tertiary;
+	// outline-width: 20px;
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px #f08804;
+	}
+}

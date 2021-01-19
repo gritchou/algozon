@@ -11,25 +11,25 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 
-import { AppSearchBoxComponent } from './widgets/search-box';
+import { SearchBoxComponent } from './widgets/search.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppSearchBoxComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgAisModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		SearchBoxComponent,
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		NgAisModule,
+		MatToolbarModule,
+		MatSidenavModule,
+		MatInputModule,
+		MatFormFieldModule,
+		MatButtonModule,
+		MatIconModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

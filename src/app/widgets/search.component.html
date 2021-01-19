@@ -1,0 +1,4 @@
+<form class="form" novalidate (submit)="handleSubmit($event)">
+	<input class="search-input" autocapitalize="off" autocorrect="off" placeholder="{{placeholder}}" role="textbox" spellcheck="false" type="text" [value]="state.query"
+		(input)="handleChange($event.target.value)" (focus)="focus.emit($event)" (blur)="blur.emit($event)" #searchBox>
+</form>
