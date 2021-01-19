@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 
 import { SearchBoxComponent } from './widgets/search.component';
+import { CategoryLabel } from './widgets/category-label.component';
 import { BrandLabel } from './widgets/brand-label.component';
 
 
@@ -19,6 +20,7 @@ import { BrandLabel } from './widgets/brand-label.component';
 	declarations: [
 		AppComponent,
 		SearchBoxComponent,
+		CategoryLabel,
 		BrandLabel,
 	],
 	imports: [
