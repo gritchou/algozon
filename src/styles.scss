@@ -14,3 +14,22 @@ body {
 .ais-RefinementList-count {
 	margin-left: 8px;
 }
+
+.hits .ais-Hits {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.ais-RatingMenu-starIcon {
+	width: 24px;
+	height: 24px;
+}
+
+.noUi-connect {
+	background-color: $tertiary;
+}
+
+.ais-CurrentRefinements-item {
+	background-color: $tertiary;
+}
