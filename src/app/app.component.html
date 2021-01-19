@@ -1,23 +1,54 @@
-<mat-toolbar class="header mat-elevation-z5">
-  <span>{{ title }}</span>
-</mat-toolbar>
 <ais-instantsearch [config]="config">
-      <mat-sidenav-container class="container" autosize>
-        <mat-sidenav opened mode="side" class="left">
-          <ais-hierarchical-menu
-              [attributes]="['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2']"
-              [sortBy]="['name:asc']">
-          </ais-hierarchical-menu>
-          <ais-refinement-list
-              attribute="brand"
-              operator="or"
-              limit="10">
-          </ais-refinement-list>
-        </mat-sidenav>
+	<mat-toolbar class="header mat-elevation-z5">
+		<span class="title">{{ title | lowercase }}</span>
+		<app-search-box class="search" placeholder=""></app-search-box>
+	</mat-toolbar>
+	<mat-sidenav-container class="container" autosize>
+		<mat-sidenav opened mode="side" class="left">
+			<app-category-label
+				[attributes]="['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2', 'hierarchicalCategories.lvl3', 'hierarchicalCategories.lvl4']">
+			</app-category-label>
+			<ais-hierarchical-menu class="left-element"
+				[attributes]="['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2', 'hierarchicalCategories.lvl3', 'hierarchicalCategories.lvl4']"
+				[sortBy]="['name:asc']">
+			</ais-hierarchical-menu>
+			<app-brand-label [attribute]="'brand'">
+			</app-brand-label>
+			<ais-refinement-list class="left-element" attribute="brand" operator="or" limit="10">
+			</ais-refinement-list>
+			<ais-rating-menu class="left-element ratings" attribute="rating" max="6"></ais-rating-menu>
+			<ais-range-slider class="left-element price" attribute="price" [min]="0" [max]="5000">
+			</ais-range-slider>
+		</mat-sidenav>
 
-    <mat-sidenav-content class="right">
-        <app-search-box placeholder="Search a product" class="search"></app-search-box>
-        <ais-hits></ais-hits>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+		<mat-sidenav-content class="right">
+			<div class="right-element right-header">
+				<ais-stats class="stats">
+					<ng-template let-state="state">
+						<span class="results">{{ state.nbHits | number }} results</span> found in {{ state.processingTimeMS }}ms.
+					</ng-template>
+				</ais-stats>
+				<ais-current-refinements [clearsQuery]="true">
+				</ais-current-refinements>
+			</div>
+			<ais-hits class="hits right-element">
+				<ng-template let-hits="hits">
+					<mat-card *ngFor="let hit of hits" class="card">
+						<div class="img">
+							<img [src]="hit.image" [alt]="hit.name">
+						</div>
+						<mat-card-title class="title">
+							<ais-highlight attribute="name" [hit]="hit">
+							</ais-highlight>
+						</mat-card-title>
+						<mat-card-content>
+							<mat-icon *ngFor="let i of [0, 1, 2, 3, 4, 5]">{{ i < hit.rating ? 'star' : 'star_border' }}</mat-icon>
+									<div class="price">${{ hit.price }}</div>
+						</mat-card-content>
+					</mat-card>
+				</ng-template>
+			</ais-hits>
+			<ais-pagination class="right-element"></ais-pagination>
+		</mat-sidenav-content>
+	</mat-sidenav-container>
 </ais-instantsearch>

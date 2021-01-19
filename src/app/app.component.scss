@@ -1,7 +1,17 @@
 
+@import "../variables";
+
 .header {
 	position: absolute;
 	z-index: 50;
+	background-color: $secondary;
+	color: white;
+
+	.title {
+		font-size: 2em;
+		font-weight: 700;
+		margin-right: 1em;
+	}
 }
 
 .container {
@@ -18,16 +28,102 @@
 	}
 
 	> .left {
-    padding: 16px;
-    width: 300px;
+		width: 310px;
+		.left-element {
+			display: block;
+			padding: 0 16px;
+
+			&:first-child {
+				padding: 16px 16px 0;
+			}
+
+			&:last-child {
+				padding: 0 16px 16px;
+			}
+
+			&:first-child:last-child {
+				padding: 16px;
+			}
+		}
+
+		.ratings {
+			margin-top: 16px;
+		}
+
+		.price {
+			margin: 64px 28px 0;
+		}
 	}
 
 	> .right {
-		padding: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
 		> .search {
 			margin-bottom: 20px;
 			display: block;
 			width: 300px;
 		}
+
+		.stats .results {
+			font-size: 1.2em;
+			font-weight: 700;
+		}
+
+		.right-element {
+			display: block;
+			padding: 0 16px;
+
+			&:first-child {
+				padding: 16px 16px 0;
+			}
+
+			&:last-child {
+				padding: 0 16px 16px;
+			}
+
+			&:first-child:last-child {
+				padding: 16px;
+			}
+		}
+
+
+		.right-header {
+			display: flex;
+			gap: 16px;
+		}
 	}
+
+	.title {
+		font-size: 1.2em;
+	}
+
+	.card {
+		width: 16em;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+
+	.title {
+		flex-grow: 1;
+	}
+
+		.img {
+			align-self: center;
+			height: 160px;
+			display: flex;
+			overflow: hidden;
+			margin: -8px -8px 16px;
+
+			img {
+				align-self: center;
+			}
+		}
+
+		.price {
+			font-size: 1.5em;
+		}
+	}
+
 }
