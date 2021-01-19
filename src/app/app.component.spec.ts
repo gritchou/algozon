@@ -11,39 +11,42 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { NgAisModule } from 'angular-instantsearch';
-import { AppSearchBoxComponent } from './widgets/search-box';
+import { SearchBoxComponent } from './widgets/search.component';
+import { CategoryLabel } from './widgets/category-label.component';
+
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        AppSearchBoxComponent,
-      ],
-      imports: [
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatIconModule,
-        NgAisModule,
-      ]
-    }).compileComponents();
-  }));
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [
+				AppComponent,
+				SearchBoxComponent,
+				CategoryLabel,
+			],
+			imports: [
+				BrowserAnimationsModule,
+				MatToolbarModule,
+				MatSidenavModule,
+				MatInputModule,
+				MatFormFieldModule,
+				MatButtonModule,
+				MatIconModule,
+				NgAisModule,
+			]
+		}).compileComponents();
+	}));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+	it('should create the app', () => {
+		const fixture = TestBed.createComponent(AppComponent);
+		fixture.detectChanges();
+		const app = fixture.debugElement.componentInstance;
+		expect(app).toBeTruthy();
+	});
 
-  it(`should have as title 'Algolia Angular Material'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Algolia Angular Material');
-  });
+	it(`should have as title 'Algozon'`, () => {
+		const fixture = TestBed.createComponent(AppComponent);
+		fixture.detectChanges();
+		const app = fixture.debugElement.componentInstance;
+		expect(app.title).toEqual('Algozon');
+	});
 });
