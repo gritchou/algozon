@@ -1,10 +1,13 @@
 <ais-instantsearch [config]="config">
 	<mat-toolbar class="header mat-elevation-z5">
-		<span class="title">{{ title | lowercase }}</span>
+		<button mat-icon-button (click)="snav.toggle()">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<span *ngIf="!mobileQuery.matches" class="title">{{ title | lowercase }}</span>
 		<app-search-box class="search" placeholder=""></app-search-box>
 	</mat-toolbar>
-	<mat-sidenav-container class="container" autosize>
-		<mat-sidenav opened mode="side" class="left">
+	<mat-sidenav-container class="container">
+		<mat-sidenav opened #snav [mode]="mobileQuery.matches ? 'over' : 'side'" class="left">
 			<app-category-label
 				[attributes]="['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2', 'hierarchicalCategories.lvl3', 'hierarchicalCategories.lvl4']">
 			</app-category-label>

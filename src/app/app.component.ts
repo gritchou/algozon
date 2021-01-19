@@ -1,3 +1,4 @@
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 	title = 'Algozon';
+	mobileQuery: MediaQueryList;
+
+	constructor(media: MediaMatcher) {
+		this.mobileQuery = media.matchMedia('(max-width: 600px)');
+	}
 
 	// Public ecommerce Dataset configured by Algolia's team
 	// config = {

@@ -186,20 +186,20 @@ I used the Visual Editor just like for the first use case. This time the trigger
 ## Next Steps?
 
 - [x] ~~Clear Filter~~ (Done with the current refinements widget)
+- [x] ~~Handle Responsive~~ (Added a toggle button to hide facets && sidenav mode is now over when on small screen)
 - [ ] Accessibility
 - [ ] Add a customized component when there is no results.
-- [ ] Handle Responsive (The page is not responsive right now, I started it but prefered to focus on the search)
 - [ ] Cross-browser (The page has been tested on chrome and firefox, it is important to test it at least on the other evergreen browsers)
 - [ ] Write Tests
-- [ ] Limite to three lines the product highlight to avoid a jump when it's too long.
+- [ ] Limit to three lines the product highlight to avoid a jump when it's too long.
 - [ ] Test autocompletion
 - [ ] Test A/B testing
 - [ ] Redo favicon with white font color to improve contrast (accessibility)
+- [ ] Redo demo gif
+
 ## Feedback
 
 I had a great time playing with Algolia. Trying to find what relevance means for a business is really interesting.
-
-It is not always easy to
 
 I had some trouble with a few widgets:
 
