@@ -45,7 +45,7 @@ In 2019, I decided to give a try to Algolia's instant-search library. My main go
 };
 ```
 This apiKey allows users to search via data that has already been indexed and therefore it is already optimized for search, but you can't interact with it nor modify the search results.
-In 2021, as part as a Solutions Engineer role application, I came back to my project and decided to improve it in several ways:
+In 2021, as part of my application for the Solutions Engineer role, I came back to my project and decided to improve it in several ways:
 
 1. Update the dependencies
 2. Improve the UI
@@ -59,7 +59,7 @@ In 2021, as part as a Solutions Engineer role application, I came back to my pro
 
 My first step was to update the dependencies. Angular latest is now `v11` and angular-instantsearch latest version is `v2.3.0` (there is a `3.0.0-beta.5` version, but I prefer to work on stable versions).
 
-For the deployment, I am used to Netlify. It is easy for me to create subdomains here and it took me five minutes to deploy a new website from github to [algozon.gritchou.dev](https://algozon.gritchou.dev).
+For the deployment, I am used to Netlify. It is easy for me to create subdomains there and it took me five minutes to deploy a new website from github to [algozon.gritchou.dev](https://algozon.gritchou.dev).
 
 ### Design
 
@@ -72,6 +72,7 @@ The application is single page.
 Here is how it is built:
 
 - Topbar
+	- Sidebar toggle button
 	- algozon Name
 	- Searchbox (Custom widget extending BaseWidget)
 - Sidebar
@@ -127,18 +128,18 @@ Items in my Dataset look like this:
 
 ## Index configuration
 
-From a search point we can rapidly see that attributes `name`, `brand` and `description` should be added to the Searchable attributes.
+Regarding the search we can rapidly see that attributes `name`, `brand` and `description` should be added to the Searchable attributes.
 
 ![Searchable Attributes](./docs/searchable-attributes.png)
 
 Then we have to think about the ranking and sorting attributes.
 From an ecommerce perspective, relevant business KPI could be: `number of sales`, `views`, `likes`, `release date`, `rating`, ... In our case one attribute that comes directly to mind is `popularity` and the second one could be `rating`. I think `rating` can be misleading because a product rated once could be rated six out of six when a product rated thousand times could have a rating of five. In this case the first result would not be the expected result. So I decided to use only the `popularity` as a custom ranking attribute.
 
-As recommended by Algolia, I decided not to change the other eight criteria of the Ranking Formula.
+As recommended by Algolia, I decided not to change the order of the eight criteria of the Ranking Formula.
 
 ![Ranking and Sorting](./docs/ranking-and-sorting.png)
 
-Now I simply had to use the my new Index configuration in my `app.component.ts`
+Now I simply had to use `prod_ALGOZON`, my newly configured Index in my `app.component.ts`
 
 ```javascript
 config = {
@@ -150,13 +151,13 @@ config = {
 ```
 ## Rules Creation
 
-I wanted to go a bit further with the Search Experience and I decided to answer to three use cases.
+I wanted to go a bit further with the Search Experience and I decided to address three use cases.
 
 1. Use case #1: Product promotion
 
 > Our partner Philips has a new starter kit of Philips Hue. Its price is $199.99. We have a discount on this pack but we need to promote it. We would like to rank it in first place when user search for any word of: Starter, Kit, Philips, Hue, Color. Is it possible?
 
-I recorded a gif showing how I created this rule using the Visual Editor in the Dashboard's rule panel. It might be a bit too fast and the caption is not always easy to read. I would redoit if it was not so much time consuming.
+I recorded a gif showing how I created this rule using the Visual Editor in the Dashboard's rule panel. It might be a bit too fast and the caption is not always easy to read. Next version will be easier to follow.
 
 ![Create a rule](./docs/create-a-rule.gif)
 
@@ -186,9 +187,9 @@ I used the Visual Editor just like for the first use case. This time the trigger
 ## Next Steps?
 
 - [x] ~~Clear Filter~~ (Done with the current refinements widget)
-- [x] ~~Handle Responsive~~ (Added a toggle button to hide facets && sidenav mode is now over when on small screen)
+- [x] ~~Handle Responsive~~ (Added a toggle button to hide facets & sidenav mode is now over when on small screen)
 - [ ] Accessibility
-- [ ] Add a customized component when there is no results.
+- [ ] Add a customized component when there are no results.
 - [ ] Cross-browser (The page has been tested on chrome and firefox, it is important to test it at least on the other evergreen browsers)
 - [ ] Write Tests
 - [ ] Limit to three lines the product highlight to avoid a jump when it's too long.
